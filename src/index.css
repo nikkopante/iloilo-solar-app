@@ -24,3 +24,14 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.map {
+  position: relative;
+}
+
+.elements {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 20px;
+}

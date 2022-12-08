@@ -2,8 +2,10 @@ import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 
 import './App.css';
+import Optionsfield from './components/Optionsfield';
 import data from './data.geojson';
 import { maxParallelImageRequests } from 'mapbox-gl';
+import { Select } from '@mantine/core';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiY25wYW50ZSIsImEiOiJjbGI4MzEydWMwaDRjM3dsajc4aTh1aWdnIn0.FvbLc0We1E7oBA--QN644w';
 
@@ -16,9 +18,9 @@ function App() {
 
   const options = [
     {
-      name: 'Solar radiation per sqm',
+      name: 'Solar',
       description: 'Solar radiation per sqm (Kwh/m2·year)',
-      fillExtrusionProperty: [
+      property: [
         'interpolate',
         ['linear'],
         ['get', 'solar_radiation_per_sqm'],
@@ -35,9 +37,9 @@ function App() {
       ],
     },
     {
-      name: 'Total solar radiation',
+      name: 'Total',
       description: 'Total solar radiation (Kwh/year)',
-      fillExtrusionProperty: [
+      property: [
         'interpolate',
         ['linear'],
         ['get', 'total_solar_radiation'],
@@ -93,7 +95,7 @@ function App() {
       map.setPaintProperty(
         'buildings-layer', 
         'fill-extrusion-color',
-        options[1].fillExtrusionProperty
+        active.property
       );
 
       setMap(map);
@@ -101,22 +103,43 @@ function App() {
     });
     return () => map.remove();
   }, []);
-  
-  /*
+
   useEffect(() => {
-    if (!map.current) return; // wait for map to initialize
-    
-    map.current.on('move', () => {
-      setLng(map.current.getCenter().lng.toFixed(4));
-      setLat(map.current.getCenter().lat.toFixed(4));
-      setZoom(map.current.getZoom().toFixed(2));      
-    });
-    
-  });
-  */
+    paint();
+  }, [active]);
+
+  const paint = () => {
+    if (map) {
+      map.setPaintProperty(
+        'buildings-layer', 
+        'fill-extrusion-color', 
+        active.property,
+      );
+    }
+  };
+
+  const changeState = i => {
+    setActive(options[i]);
+    map.setPaintProperty(
+      'buildings-layer', 
+      'fill-extrusion-color', 
+      active.property,
+    );
+  };
+  
   return (
     <div className='map'>
-      <div ref={mapContainer} className="map-container" />
+      <div ref={mapContainer} className="map-container">
+        
+       <div className='elements'>
+        <Optionsfield
+          options={options}
+          property={active.property}
+          changeState={changeState}
+        />
+      </div>
+     
+    </div>
     </div>
   );
 }
