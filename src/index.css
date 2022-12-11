@@ -90,4 +90,14 @@ body {
 .legend-container {
   display: flex;
   align-items: center;
+  font-size: small;
+}
+
+p {
+  font-size: small;
+}
+
+
+.legend-p {
+  font-size: x-small;
 }

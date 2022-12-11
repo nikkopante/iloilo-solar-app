@@ -22,28 +22,28 @@ function App() {
       name: 'Solar radiation per sqm',
       description: 'kWh/m2·year',
       stops: [
-        [692.30, '#fafa6e'],
-        [982.48, '#fce34c'],
-        [1124.92, '#feca2a'],
-        [1224.31, '#ffb000'],
-        [1310.09, '#ff9400'],
-        [1395.84, '#ff7500'],
-        [1494.33, '#ff5000'],
-        [1696.74, '#ff0000'],
+        [692.30, '#ffffcc'],
+        [982.48, '#ffeda0'],
+        [1124.92, '#fed976'],
+        [1224.31, '#feb24c'],
+        [1310.09, '#fd8d3c'],
+        [1395.84, '#fc4e2a'],
+        [1494.33, '#e31a1c'],
+        [1696.74, '#b10026'],
       ],
       property: [
         'interpolate',
         ['linear'],
         ['get', 'solar_radiation_per_sqm'],
         ...[
-          692.30, '#fafa6e',
-          982.48, '#fce34c',
-          1124.92, '#feca2a',
-          1224.31, '#ffb000',
-          1310.09, '#ff9400',
-          1395.84, '#ff7500',
-          1494.33, '#ff5000',
-          1696.74, '#ff0000',
+          692.30, '#ffffcc',
+          982.48, '#ffeda0',
+          1124.92, '#fed976',
+          1224.31, '#feb24c',
+          1310.09, '#fd8d3c',
+          1395.84, '#fc4e2a',
+          1494.33, '#e31a1c',
+          1696.74, '#b10026',
         ],
       ],
     },
@@ -51,28 +51,28 @@ function App() {
       name: 'Total solar radiation',
       description: 'kWh/year',
       stops: [
-        [7063.14, '#b5e877'],
-        [211463.36, '#80d582'],
-        [537867.69, '#4fbf8b'],
-        [1073338.90, '#1fa890'],
-        [1923380.77, '#00908d'],
-        [3256631.15, '#017782'],
-        [8638240.16, '#1f5f70'],
-        [22723028.76, '#2a4858'],
+        [7063.14, '#ffffd9'],
+        [211463.36, '#edf8b1'],
+        [537867.69, '#c7e9b4'],
+        [1073338.90, '#7fcdbb'],
+        [1923380.77, '#41b6c4'],
+        [3256631.15, '#1d91c0'],
+        [8638240.16, '#225ea8'],
+        [22723028.76, '#0c2c84'],
       ],
       property: [
         'interpolate',
         ['linear'],
         ['get', 'total_solar_radiation'],
         ...[
-          7063.14, '#b5e877',
-          211463.36, '#80d582',
-          537867.69, '#4fbf8b',
-          1073338.90, '#1fa890',
-          1923380.77, '#00908d',
-          3256631.15, '#017782',
-          8638240.16, '#1f5f70',
-          22723028.76, '#2a4858',
+          7063.14, '#ffffd9',
+          211463.36, '#edf8b1',
+          537867.69, '#c7e9b4',
+          1073338.90, '#7fcdbb',
+          1923380.77, '#41b6c4',
+          3256631.15, '#1d91c0',
+          8638240.16, '#225ea8',
+          22723028.76, '#0c2c84',
         ],
       ],
     }
@@ -174,8 +174,8 @@ function App() {
     <div className='map'>
       <div className="sidebar">
         <h4>Iloilo City Proper Building Roofs Solar Potential</h4>
-        <p>Select a layer using the dropdown menu. Click a building
-          to view information.
+        <p>Select a layer using the dropdown menu. Alternatively, you can
+          click a building model to view information.
         </p>
         <Select
           defaultValue='0'
