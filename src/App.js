@@ -6,7 +6,7 @@ import Legend from './components/Legend';
 import Optionsfield from './components/Optionsfield';
 import data from './data.geojson';
 import { maxParallelImageRequests } from 'mapbox-gl';
-import { Select, validateJson, Container } from '@mantine/core';
+import { Select, Container } from '@mantine/core';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiY25wYW50ZSIsImEiOiJjbGI4MzEydWMwaDRjM3dsajc4aTh1aWdnIn0.FvbLc0We1E7oBA--QN644w';
 
@@ -22,28 +22,28 @@ function App() {
       name: 'Solar radiation per sqm',
       description: 'kWh/m2·year',
       stops: [
-        [218, '#fafa6e'],
-        [923, '#fce34c'],
-        [1047, '#feca2a'],
-        [1137, '#ffb000'],
-        [1216, '#ff9400'],
-        [1301, '#ff7500'],
-        [1398, '#ff5000'],
-        [1696, '#ff0000'],
+        [692.30, '#fafa6e'],
+        [982.48, '#fce34c'],
+        [1124.92, '#feca2a'],
+        [1224.31, '#ffb000'],
+        [1310.09, '#ff9400'],
+        [1395.84, '#ff7500'],
+        [1494.33, '#ff5000'],
+        [1696.74, '#ff0000'],
       ],
       property: [
         'interpolate',
         ['linear'],
         ['get', 'solar_radiation_per_sqm'],
         ...[
-          218, '#fafa6e',
-          923, '#fce34c',
-          1047, '#feca2a',
-          1137, '#ffb000',
-          1216, '#ff9400',
-          1301, '#ff7500',
-          1398, '#ff5000',
-          1696, '#ff0000',
+          692.30, '#fafa6e',
+          982.48, '#fce34c',
+          1124.92, '#feca2a',
+          1224.31, '#ffb000',
+          1310.09, '#ff9400',
+          1395.84, '#ff7500',
+          1494.33, '#ff5000',
+          1696.74, '#ff0000',
         ],
       ],
     },
@@ -51,28 +51,28 @@ function App() {
       name: 'Total solar radiation',
       description: 'kWh/year',
       stops: [
-        [3328.82, '#b5e877'],
-        [4650.70, '#80d582'],
-        [69393.08, '#4fbf8b'],
-        [95149.81, '#1fa890'],
-        [133605.81, '#00908d'],
-        [201606.24, '#017782'],
-        [394596.59, '#1f5f70'],
-        [23832627, '#2a4858'],
+        [7063.14, '#b5e877'],
+        [211463.36, '#80d582'],
+        [537867.69, '#4fbf8b'],
+        [1073338.90, '#1fa890'],
+        [1923380.77, '#00908d'],
+        [3256631.15, '#017782'],
+        [8638240.16, '#1f5f70'],
+        [22723028.76, '#2a4858'],
       ],
       property: [
         'interpolate',
         ['linear'],
         ['get', 'total_solar_radiation'],
         ...[
-          3328.82, '#b5e877',
-          4650.70, '#80d582',
-          69393.08, '#4fbf8b',
-          95149.81, '#1fa890',
-          133605.81, '#00908d',
-          201606.24, '#017782',
-          394596.59, '#1f5f70',
-          23832627, '#2a4858',
+          7063.14, '#b5e877',
+          211463.36, '#80d582',
+          537867.69, '#4fbf8b',
+          1073338.90, '#1fa890',
+          1923380.77, '#00908d',
+          3256631.15, '#017782',
+          8638240.16, '#1f5f70',
+          22723028.76, '#2a4858',
         ],
       ],
     }
@@ -98,6 +98,8 @@ function App() {
         data: data,
         generateId: true,
       });
+      
+      map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
   
       map.addLayer(
         {
@@ -106,7 +108,7 @@ function App() {
           source: 'buildings',
           layout: {},
           paint: {
-            'fill-extrusion-height': ['get', 'bldg_height'],
+            'fill-extrusion-height': ['get', 'height_max'],
             'fill-extrusion-base': 0,
             'fill-extrusion-opacity': 0.75,
           }
@@ -118,6 +120,26 @@ function App() {
         'fill-extrusion-color',
         active.property
       );
+
+      map.on('click', 'buildings-layer', (e) => {
+        new mapboxgl.Popup()
+        .setLngLat(e.lngLat)
+        .setHTML(`
+          <b>Building Model Information</b> <br/><br/>
+          OSM ID: ${e.features[0].properties.full_id} <br/>
+          Solar Radiation: ${e.features[0].properties.solar_radiation_per_sqm} <br/>
+          Total Solar Radiation: ${e.features[0].properties.total_solar_radiation} <br/>
+          Est. Roof Area: ${e.features[0].properties.area} <br/>
+          Est. Bldg. Height: ${e.features[0].properties.height_max}
+          `)
+        .addTo(map);
+        });
+         
+        // Change the cursor to a pointer when
+        // the mouse is over the states layer.
+      map.on('mouseenter', 'buildings-layer', () => {
+        map.getCanvas().style.cursor = 'pointer';
+        });
 
       setMap(map);
 
@@ -172,9 +194,9 @@ function App() {
         <Legend active={active} stops={active.stops} />
         <br/>
         <small>Data Sources: &nbsp;
-            <a href="https://lipad.dream.upd.edu.ph/">LiPAD</a>, &nbsp;
-            <a href="https://www.openstreetmap.org/">OpenStreetMap</a>, &nbsp;
-            <a href="https://joint-research-centre.ec.europa.eu/pvgis-photovoltaic-geographical-information-system/pvgis-tools/tmy-generator_en">EU Science Hub</a>
+            <a href="https://lipad.dream.upd.edu.ph/" target='_blank'>LiPAD</a>, &nbsp;
+            <a href="https://www.openstreetmap.org/" target='_blank'>OpenStreetMap</a>, &nbsp;
+            <a href="https://joint-research-centre.ec.europa.eu/pvgis-photovoltaic-geographical-information-system/pvgis-tools/tmy-generator_en" target='_blank'>EU Science Hub</a>
         </small>
       </div>
       <div ref={mapContainer} className="map-container">

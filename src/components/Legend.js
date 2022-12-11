@@ -3,10 +3,10 @@ import React from "react";
 const Legend = (props) => {
   const renderLegendKeys = (stop, i) => {
     return (
-      <div key={i} className="txt-s">
+      <div key={i} className="txt-s legend-container">
         <span
           className="mr6 round-full w12 h12 inline-block align-middle"
-          style={{ backgroundColor: stop[1] }}
+          style={{ backgroundColor: stop[1], width: '20px', height: '20px', display: 'block', marginRight: '5px' }}
         />
         <span>{`${stop[0].toLocaleString()}`}</span>
       </div>

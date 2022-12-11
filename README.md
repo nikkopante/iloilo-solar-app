@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# Iloilo City Proper Building Roof Solar Potential
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About
+This is a project under my GmE 231 (LiDAR Remote Sensing) class. We were tasked to replicate an existing study on LiDAR applications. I picked Prieto et. al (2019) study on a methodology for computing solar potential of building roofs, creating 3D models, and presenting them in a web application. 
 
-## Available Scripts
+My chosen study area is the Iloilo City Proper. It is the center of trade in the city and filled with commercial buildings.
 
-In the project directory, you can run:
+For my project, I used and changed some of the methodology proposed by Prieto et. al (2019). Instead of using Cesium and CityGML, I used Mapbox and GeoJSON for my web application and data model.
 
-### `npm start`
+The output is a simple web application showing the solar potential of building roofs. The solar potential computation was done in QGIS using the SEBE toolbox.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
+Clone the project
+```
+git clone https://github.com/nikkopante/iloilo-solar-app.git
+```
+Enter the project directory and install dependencies
+```
+cd iloilo-solar-app
+npm install
+```
+Start the project
+```
+npm start
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Data Sources
+1. [LiPAD](https://lipad.dream.upd.edu.ph/) - LiDAR data on Iloilo City.
+2. [EU Science Hub](https://joint-research-centre.ec.europa.eu/pvgis-photovoltaic-geographical-information-system/pvgis-tools/tmy-generator_en) - Typical Meteorological Year (TMY).
+3. [OpenStreetMap](https://www.openstreetmap.org/#map=19/10.69289/122.57010) - I used the QuickOSM plugin in QGIS to get building footprints.
 
-### `npm test`
+## References
+Prieto, I.; Izkara, J.L.; Usobiaga, E. The Application of LiDAR Data for the Solar Potential Analysis Based on Urban 3D Model. Remote Sens. 2019, 11, 2348. https://doi.org/10.3390/rs11202348
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
