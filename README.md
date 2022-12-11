@@ -1,4 +1,4 @@
-# Iloilo City Proper Building Roof Solar Potential
+# Iloilo City Proper Building Roofs Solar Potential
 
 ## About
 This is a project under my GmE 231 (LiDAR Remote Sensing) class. We were tasked to replicate an existing study on LiDAR applications. I picked Prieto et. al (2019) study on a methodology for computing solar potential of building roofs, creating 3D models, and presenting them in a web application. 
@@ -32,3 +32,6 @@ npm start
 ## References
 Prieto, I.; Izkara, J.L.; Usobiaga, E. The Application of LiDAR Data for the Solar Potential Analysis Based on Urban 3D Model. Remote Sens. 2019, 11, 2348. https://doi.org/10.3390/rs11202348
 
+Lindberg F, Grimmond CSB, Gabey A, Huang B, Kent CW, Sun T, Theeuwes N, Järvi L, Ward H, Capel- Timms I, Chang YY, Jonsson P, Krave N, Liu D, Meyer D, Olofson F, Tan JG, Wästberg D, Xue L, Zhang Z (2018) Urban Multi-scale Environmental Predictor (UMEP) - An integrated tool for city-based climate services. Environmen tal Modelling and Software.99, 70-87 https://doi.org/10.1016/j.envsoft.2017.09.020
+
+Lindberg F, Grimmond CSB, A Gabey, L Jarvi, CW Kent, N Krave, T Sun, N Wallenberg, HC Ward (2019) Urban Multi-scale Environmental Predictor (UMEP) Manual. https://umep-docs.readthedocs.io/ University of Reading UK, University of Gothenburg Sweden, SIMS China
