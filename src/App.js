@@ -196,6 +196,11 @@ function App() {
             <a href="https://www.openstreetmap.org/" target='_blank'>OpenStreetMap</a>, &nbsp;
             <a href="https://joint-research-centre.ec.europa.eu/pvgis-photovoltaic-geographical-information-system/pvgis-tools/tmy-generator_en" target='_blank'>EU Science Hub</a>
         </small>
+        <br/>
+        <br/>
+        <small>Github:&nbsp;
+        <a href="https://github.com/nikkopante/iloilo-solar-app" target='_blank'>nikkopante/iloilo-solar-app</a>
+        </small>
       </div>
       <div ref={mapContainer} className="map-container">
     </div>
