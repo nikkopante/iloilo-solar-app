@@ -3,19 +3,17 @@ import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-load
 
 import './App.css';
 import Legend from './components/Legend';
-import Optionsfield from './components/Optionsfield';
 import data from './data.geojson';
-import { maxParallelImageRequests } from 'mapbox-gl';
-import { Select, Container } from '@mantine/core';
+import { Select } from '@mantine/core';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiY25wYW50ZSIsImEiOiJjbGI4MzEydWMwaDRjM3dsajc4aTh1aWdnIn0.FvbLc0We1E7oBA--QN644w';
 
 function App() {
   const mapContainer = useRef(null);
   const [map, setMap] = useState(null);
-  const [lng, setLng] = useState(122.5705);
-  const [lat, setLat] = useState(10.6952);
-  const [zoom, setZoom] = useState(14.9);
+  const lng = 122.5705;
+  const lat = 10.6952;
+  const zoom = 14.9;
 
   const options = [
     {
