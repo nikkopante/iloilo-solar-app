@@ -181,7 +181,7 @@ function App() {
           data={[
             {
               value: '0',
-              label: 'Solar Energy per Sqm',
+              label: 'Solar Energy per Square Meter',
             },
             {
               value: '1',
