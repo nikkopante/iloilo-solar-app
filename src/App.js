@@ -181,11 +181,11 @@ function App() {
           data={[
             {
               value: '0',
-              label: 'Solar Radiation per Sqm',
+              label: 'Solar Energy per Sqm',
             },
             {
               value: '1',
-              label: 'Total Solar Radiation',
+              label: 'Total Solar Energy',
             },
           ]}
         />
